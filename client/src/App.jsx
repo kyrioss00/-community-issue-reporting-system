@@ -6,7 +6,7 @@ import UserManagement from "./UserManagement";
 import Profile from "./Profile";
 import "./App.css";
 
-const API_URL = "http://localhost:5000/api/issues";
+const API_URL = `${import.meta.env.VITE_API_URL || "http://localhost:5000/api"}/issues`;
 
 function getAuthHeaders() {
   const token = localStorage.getItem("token");
