@@ -1,0 +1,689 @@
+
+/* =================================
+   COMMUNITY ISSUE REPORTING SYSTEM
+   Modern Green Dashboard Theme
+================================= */
+
+:root {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #1e293b;
+  background: #f3f6f4;
+
+  --primary: #166534;
+  --primary-dark: #14532d;
+  --primary-light: #dcfce7;
+  --text-muted: #64748b;
+  --border: #e2e8f0;
+  --surface: #ffffff;
+  --background: #f3f6f4;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+  background:
+    radial-gradient(circle at 10% 10%, rgba(134, 239, 172, 0.25), transparent 30%),
+    radial-gradient(circle at 90% 85%, rgba(187, 247, 208, 0.35), transparent 30%),
+    linear-gradient(135deg, #ecfdf5 0%, #f0fdf4 45%, #e2e8f0 100%);
+  background-attachment: fixed;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  border: none;
+  border-radius: 8px;
+  background: var(--primary);
+  color: white;
+  padding: 11px 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+button:hover {
+  background: var(--primary-dark);
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+input,
+textarea,
+select {
+  border: 1px solid #cbd5d1;
+  border-radius: 8px;
+  padding: 12px;
+  background: white;
+  color: #1e293b;
+  outline: none;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: #16806a;
+  box-shadow: 0 0 0 3px rgba(22, 128, 106, 0.12);
+}
+
+/* Main Layout */
+
+.app-container {
+  width: min(1200px, 94%);
+  margin: 0 auto;
+  padding-bottom: 48px;
+}
+
+/* Hero Section */
+
+.hero {
+  background: linear-gradient(135deg, #14532d, #16806a);
+  color: white;
+  padding: 44px;
+  margin: 24px 0;
+  border-radius: 18px;
+  box-shadow: 0 8px 24px rgba(20, 83, 45, 0.15);
+}
+
+.eyebrow {
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  opacity: 0.85;
+}
+
+.hero h1 {
+  font-size: clamp(26px, 4vw, 40px);
+  margin: 12px 0;
+}
+
+.hero p {
+  line-height: 1.7;
+}
+
+/* Main Sections */
+
+.issue-form-section,
+.reports-section,
+.dashboard-stats,
+.user-management,
+.profile-container {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 28px;
+  margin-top: 24px;
+  box-shadow: 0 3px 12px rgba(15, 23, 42, 0.035);
+}
+
+.issue-form-section h2,
+.reports-section h2,
+.dashboard-stats h2,
+.user-management h2 {
+  margin-top: 0;
+  color: var(--primary-dark);
+}
+
+/* Issue Submission Form */
+
+.issue-form {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.issue-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.issue-form input,
+.issue-form textarea,
+.issue-form select {
+  width: 100%;
+}
+
+.issue-form textarea {
+  min-height: 110px;
+  resize: vertical;
+}
+
+.issue-form button {
+  grid-column: 1 / -1;
+}
+
+/* Section Headings */
+
+.section-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.section-heading p,
+.dashboard-stats > p,
+.user-management > p {
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* Dashboard Statistics */
+
+.dashboard-stats h2 {
+  text-align: center;
+  font-size: 24px;
+}
+
+.dashboard-stats > p {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.stat-card {
+  background: #f8fafc;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px 18px;
+  text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(15, 23, 42, 0.07);
+}
+
+.stat-card h3 {
+  color: var(--text-muted);
+  font-size: 14px;
+  margin: 0 0 12px;
+}
+
+.stat-card p {
+  color: var(--primary);
+  font-size: 30px;
+  font-weight: 700;
+  margin: 0;
+}
+
+/* Search and Filters */
+
+.report-filters {
+  display: grid;
+  grid-template-columns: minmax(220px, 2fr) minmax(160px, 1fr) minmax(180px, 1fr) auto;
+  gap: 18px;
+  align-items: end;
+  width: 100%;
+  margin: 24px 0;
+  padding: 22px;
+  background: #f8fafc;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+
+.report-filters label {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  min-width: 0;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.report-filters input,
+.report-filters select {
+  width: 100%;
+  min-width: 0;
+  height: 44px;
+}
+
+.report-filters button {
+  min-height: 44px;
+  white-space: nowrap;
+}
+
+.results-count {
+  margin: 20px 0 24px;
+  color: var(--text-muted);
+  font-size: 14px;
+}
+
+/* Issue Report Cards */
+
+.reports-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+  margin-top: 20px;
+}
+
+.issue-card {
+  min-width: 0;
+  padding: 24px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: white;
+  overflow-wrap: anywhere;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.issue-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.07);
+}
+
+.issue-card h3 {
+  margin: 16px 0 12px;
+  font-size: 20px;
+}
+
+.issue-card-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.category-label,
+.status-label {
+  display: inline-block;
+  padding: 6px 11px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.category-label {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.status-label {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.issue-description {
+  color: #475569;
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+.issue-details {
+  display: grid;
+  gap: 12px;
+  margin: 20px 0;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+}
+
+.issue-details p {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.status-control {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+  font-weight: 600;
+}
+
+.status-control select {
+  width: 100%;
+}
+
+/* Authentication Pages */
+
+.auth-container {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 24px;
+  background: linear-gradient(135deg, #dcfce7, #e8f5ee);
+}
+
+.auth-form {
+  width: 100%;
+  max-width: 420px;
+  padding: 36px;
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.08);
+}
+
+.auth-form h2 {
+  margin: 0 0 10px;
+  color: var(--primary-dark);
+  font-size: 28px;
+  text-align: center;
+}
+
+.auth-form > p {
+  margin: 0 0 24px;
+  color: var(--text-muted);
+  text-align: center;
+  line-height: 1.5;
+}
+
+.auth-form label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.auth-form input {
+  display: block;
+  width: 100%;
+  height: 46px;
+  margin-bottom: 20px;
+}
+
+.auth-form button[type="submit"] {
+  display: block;
+  width: 100%;
+  min-height: 46px;
+  margin-top: 8px;
+}
+
+.auth-form button[type="button"] {
+  padding: 0;
+  background: transparent;
+  color: var(--primary);
+}
+
+.auth-form button[type="button"]:hover {
+  background: transparent;
+  text-decoration: underline;
+}
+
+.auth-form button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.auth-message {
+  margin: 0 0 16px !important;
+  color: var(--primary) !important;
+  font-size: 14px;
+  text-align: center;
+}
+
+.user-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  margin-top: 20px;
+}
+
+/* User Management */
+
+.user-management h2 {
+  font-size: 22px;
+  margin-bottom: 8px;
+}
+
+.users-table-container {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.users-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.users-table th {
+  background: #f0fdf4;
+  color: var(--primary-dark);
+  padding: 15px;
+  font-size: 14px;
+  border-bottom: 2px solid #d1fae5;
+}
+
+.users-table td {
+  padding: 15px;
+  font-size: 14px;
+  color: #334155;
+  border-bottom: 1px solid var(--border);
+}
+
+.users-table tbody tr:hover {
+  background: #f8fafc;
+}
+
+.user-management .users-count {
+  margin-top: 18px;
+  color: var(--primary);
+  font-weight: 600;
+  font-size: 14px;
+}
+
+/* Resident Profile */
+
+.profile-container {
+  width: 100%;
+  max-width: 100%;
+  margin: 24px auto;
+}
+
+.profile-container h2 {
+  margin: 0;
+  text-align: center;
+  font-size: 24px;
+  color: var(--primary);
+}
+
+.profile-container > p {
+  margin: 8px 0 24px;
+  text-align: center;
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+.profile-card {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  width: 100%;
+  padding: 28px;
+  background: #f8fafc;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+
+.profile-avatar {
+  width: 85px;
+  height: 85px;
+  min-width: 85px;
+  border-radius: 50%;
+  background: var(--primary);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 34px;
+  font-weight: bold;
+  flex-shrink: 0;
+}
+
+.profile-details {
+  flex: 1;
+  min-width: 0;
+}
+
+.profile-details h3 {
+  margin: 0 0 15px;
+  font-size: 21px;
+  color: #1f2937;
+}
+
+.profile-details p {
+  margin: 10px 0;
+  color: #475569;
+  font-size: 14px;
+  overflow-wrap: anywhere;
+}
+
+.profile-details strong {
+  color: #1f2937;
+}
+
+.profile-details form label {
+  display: block;
+  margin-bottom: 18px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.profile-details form input {
+  display: block;
+  width: 100%;
+  max-width: 400px;
+  margin-top: 8px;
+}
+
+.profile-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.profile-actions button {
+  width: auto;
+  min-width: 110px;
+  padding: 10px 16px;
+  font-size: 13px;
+}
+
+.profile-actions button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.profile-back-button {
+  display: block;
+  margin: 0 auto 25px;
+  padding: 11px 20px;
+}
+
+/* Error Messages */
+
+.error-message {
+  padding: 12px 16px;
+  border-radius: 8px;
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+/* Responsive Layout */
+
+@media (max-width: 1050px) {
+  .report-filters {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 800px) {
+  .reports-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 650px) {
+  .stats-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .issue-form {
+    grid-template-columns: 1fr;
+  }
+
+  .issue-form-section,
+  .reports-section,
+  .dashboard-stats,
+  .user-management {
+    padding: 20px;
+  }
+
+  .users-table {
+    min-width: 600px;
+  }
+}
+
+@media (max-width: 600px) {
+  .report-filters {
+    grid-template-columns: 1fr;
+    padding: 16px;
+  }
+
+  .section-heading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .profile-card {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px;
+  }
+
+  .profile-avatar {
+    width: 75px;
+    height: 75px;
+    min-width: 75px;
+    font-size: 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    padding: 26px;
+  }
+
+  .auth-form {
+    padding: 24px;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .profile-actions {
+    flex-wrap: wrap;
+  }
+}
