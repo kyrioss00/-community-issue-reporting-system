@@ -12,7 +12,7 @@ function UserManagement() {
       try {
         const token = localStorage.getItem("token");
 
-        const response = await fetch("http://localhost:5000/api/users", {
+        const response = await fetch(`${import.meta.env.VITE_API_URL || "http://localhost:5000/api"}/users`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -45,7 +45,7 @@ function UserManagement() {
     const token = localStorage.getItem("token");
 
     const response = await fetch(
-      `http://localhost:5000/api/users/${userId}/role`,
+      `${import.meta.env.VITE_API_URL || "http://localhost:5000/api"}/users/${userId}/role`,
       {
         method: "PATCH",
         headers: {
@@ -95,7 +95,7 @@ async function handleDeleteUser(userId, userName) {
     const token = localStorage.getItem("token");
 
     const response = await fetch(
-      `http://localhost:5000/api/users/${userId}`,
+      `${import.meta.env.VITE_API_URL || "http://localhost:5000/api"}/users/${userId}`,
       {
         method: "DELETE",
         headers: {

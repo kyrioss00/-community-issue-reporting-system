@@ -25,7 +25,7 @@ function Profile() {
           return;
         }
 
-        const response = await fetch("http://localhost:5000/api/profile/me", {
+        const response = await fetch(`${import.meta.env.VITE_API_URL || "http://localhost:5000/api"}/profile/me`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -64,7 +64,7 @@ function Profile() {
 
       const token = localStorage.getItem("token");
 
-      const response = await fetch("http://localhost:5000/api/profile/me", {
+      const response = await fetch(`${import.meta.env.VITE_API_URL || "http://localhost:5000/api"}/profile/me`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -126,13 +126,13 @@ function Profile() {
       const token = localStorage.getItem("token");
 
       const response = await fetch(
-        "http://localhost:5000/api/profile/change-password",
+        `${import.meta.env.VITE_API_URL || "http://localhost:5000/api"}/profile/change-password`,
         {
           method: "PUT",
           headers: {
             "Content-Type": "application/json",
             Authorization: `Bearer ${token}`,
-          },
+          },  
           body: JSON.stringify({
             currentPassword,
             newPassword,
